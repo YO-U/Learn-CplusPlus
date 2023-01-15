@@ -48,21 +48,44 @@ template <class T> void Swap(T& a, T& b) {
 	b = save;
 }
 */
-void Mass(int* const mass, int const size) {
+
+void Generate(int* const arr, const int size) {
 	for (int i = 0; i < size; i++)
 	{
-		mass[i] = rand() % 20;
-		cout << mass[i] << '\t';
+		arr[i] = rand()%10;
+	}
+}
+void Show(int* const arr, const int size) {
+	for (int i = 0; i < size; i++)
+	{
+		cout << arr[i] << '\t';
 	}
 	cout << endl;
+}
+void push_bck(int *&arr,int const &size, const int part, const int value) {
+	int* newArr = new int[size];
+	for (int i = 0; i < size; i++)
+	{
+		if (part == i) {
+			newArr[i] = value;
+		}
+		else
+		newArr[i] = arr[i];
+
+	}
+	
+
+	delete[]arr;
+	arr = newArr;
 }
 
 int main()//начало проги
 
 {
-	//srand(time(NULL));//точка для отсчета рандомных чисел 
+	srand(time(NULL));//точка для отсчета рандомных чисел 
 	setlocale(LC_ALL, "ru");//для получене в этом случае русского языка
-	//вывод ввод
+
+	//1.1 вывод ввод
 /*
 
 
@@ -77,13 +100,13 @@ int main()//начало проги
 	чтобы вывести "" '' \\  перед ними надо \ "\"Hellow\"" "\\Hellow\\"
 	*/
 
-	//переменные 
+	//1.2 переменные 
 /*
 	int a = 10, b = 120, c = 30;
 	cout << a << "\t" << b << "\t" << c << '\n';
 	*/
 
-	//константы 
+	//1.3 константы 
 /*
 	const int CONST_DAYS_IN_WEEK = 7;
 	const char NEXT_LINE = '\n';
@@ -91,7 +114,7 @@ int main()//начало проги
 	cout << CONST_DAYS_IN_WEEK<< SPACE << "days" << SPACE << "ago" << NEXT_LINE;
 	*/
 
-	//ввод с консоли 
+	//1.4 ввод с консоли 
 /*
 	int AGE, FAVORITE_NUMBER;
 	cout << "Введите ваш возраст и любимое число: ";
@@ -99,7 +122,7 @@ int main()//начало проги
 	cout  <<"Ваш возраст: " << AGE << endl << "Ваше любиме число: " << FAVORITE_NUMBER << NEXT_LINE;
 	*/
 
-	//арефметика 
+	//1.5 арефметика 
 /*
 	int RESULT=0, FIRST_NUMBER=10, SECOND_NUMBER=5;
 	FIRST_NUMBER = -FIRST_NUMBER;
@@ -108,7 +131,7 @@ int main()//начало проги
 	cout <<"Сумма: " << RESULT << endl;
 	*/
 
-	//задание арефметики
+	//1.6 задание арефметики
 /*
 	int FIRST, SECOND,THIRD, RES;
 	cout << "Введите 3 числа: ";
@@ -118,7 +141,7 @@ int main()//начало проги
 	cout << "Среднее: " << (FIRST + SECOND + THIRD) / 3;
 	*/
 
-	//инкремент и декремент. постфиксный и префиксный.
+	//1.7 инкремент и декремент. постфиксный и префиксный.
 /*
 	 int a;
 	a =  + 1;
@@ -131,7 +154,7 @@ int main()//начало проги
 	a++; //постфиксный сначало выводит потом складывает
 	*/
 
-	//упращенное сложение вычетание 
+	//1.8 упращенное сложение вычетание 
 /*
 	int a = 1;
 	a += 9;
@@ -144,7 +167,7 @@ int main()//начало проги
 	cout << a << endl;
 	*/
 
-	//логические операции
+	//1.9 логические операции
 /*
 	4 < 5; //меньше (1 да)
 	4 > 5; //больше (0 нет)
@@ -155,7 +178,7 @@ int main()//начало проги
 	!(4 > 5); //обратное большему (1 да) 4 > 5 нет но ! да
 	*/
 
-	//If else
+	//2.0 If else
 /*
 	bool rain = false;
 	if (rain) {
@@ -180,7 +203,7 @@ int main()//начало проги
 	}
 	*/
 
-	//задание If else
+	//2.1 задание If else
 /*
 	int number;
 	cout << "Введите число: ";
@@ -194,7 +217,7 @@ int main()//начало проги
 	}
 	*/
 
-	//Switch(задание калькулятор)
+	//2.2 Switch(задание калькулятор)
 /*
 	char operation;
 	int first, second;
@@ -231,7 +254,7 @@ int main()//начало проги
 
 	*/
 
-	//цикл while /do while (2 задания)
+	//2.3 цикл while /do while (2 задания)
 /*int loading = 0;
 	while (loading <100)
 	{
@@ -284,7 +307,7 @@ int main()//начало проги
 	cout << "Сумма нечетных чисел равна: " << result;
 	*/
 
-	//цикл for
+	//2.4 цикл for
 /*
 	int i = 0;
 	for (; i < 10; i++)
@@ -318,7 +341,7 @@ int main()//начало проги
 	}
 	*/
 
-	//оператор break (завершение цикла)
+	//2.5 оператор break (завершение цикла)
 /*
    cout << "Начало цикла" << endl;
    int i = 0;
@@ -342,7 +365,7 @@ int main()//начало проги
    }
    */
 
-   //оператор continue (пропустить шаг в цикле)
+   //2.6 оператор continue (пропустить шаг в цикле)
 /*for (int i = 0; i < 10; i++)
    {
 	   if (i==5)
@@ -353,7 +376,7 @@ int main()//начало проги
 
    }*/
 
-   //оператор перехода goto (переход из строчки goto в другую часть кода пропуская все что было после)
+   //2.7 оператор перехода goto (переход из строчки goto в другую часть кода пропуская все что было после)
 /*
    cout << "1" << endl;
    cout << "2" << endl;
@@ -364,7 +387,7 @@ int main()//начало проги
    cout << "5" << endl;
    */
 
-   //вложенный цикл. вложенная конструкция ( задание квадрат из * )
+   //2.8 вложенный цикл. вложенная конструкция ( задание квадрат из * )
 /*for (int i = 0; i < 10; i++)
 	{
 		cout << "Первый цикл" << i << endl;
@@ -411,7 +434,7 @@ int main()//начало проги
   
    //МАССИВЫ//
  
-   //объявление массива
+   //3.0 объявление массива
 /*
    int mass[4];
    mass[0] = 4;
@@ -421,14 +444,14 @@ int main()//начало проги
    cout << mass[0];
    */
 
-   //Инициализация массива
+   //3.1 Инициализация массива
 /*
 	int mass[] = {10,88,1,532};
 	cout << mass[3];
 	int mass[10]{};//все 10 будут нулями
 	*/
 
-   //Циклы и массивы их взаимодействие
+   //3.2 Циклы и массивы их взаимодействие
 /*
    const int size = 10;
    int mass[size] = {1,44,123,1435,13,4,123,553};
@@ -439,7 +462,7 @@ int main()//начало проги
    }
    */
   
-   //sizeof (размер переменной или типе данных)
+   //3.3 sizeof (размер переменной или типе данных)
 /*
    cout << sizeof(int) << endl; //4
    int mass[] = {2,31,4324,652,23,653,22,5,4,7334,54,546,3,34,6,3,2,3234,644,6,335,3,45,6};
@@ -449,7 +472,7 @@ int main()//начало проги
    }
    */
   
-   //Генератор чисел (задание числа в массиве не одинаковые и найти минимальный массив)
+   //3.4 Генератор чисел (задание числа в массиве не одинаковые и найти минимальный массив)
 /*
    int a = rand();
    cout << a<<endl;
@@ -497,7 +520,7 @@ int main()//начало проги
    cout << result;
    */
 
-   //двумерный массив(трех)
+   //3.5 двумерный массив(трех)
 /*
    const int sizeR = 5, sizeC = 3, sizeG=3;
    int mass[sizeR][sizeC][sizeG]{};
@@ -517,7 +540,7 @@ int main()//начало проги
    }
    */
   
-   //функции
+   //3.6 функции
 /*
 Sum(9, 56);
 Sum(10, 5);
@@ -528,13 +551,13 @@ println();
    Def();
    */
 
-   //перегрузка функции (позволят применять 1 название функции но при разных типах данных и количестве переменных делает разные действия)
+   //3.7 перегрузка функции (позволят применять 1 название функции но при разных типах данных и количестве переменных делает разные действия)
 /*
 Sum(1, 2);
 Sum(1.0, 2.2);
 */
 
-    //шаблоны функций(позволяет не зависимо от типа данных выполнять работу функции)
+   //3.8 шаблоны функций(позволяет не зависимо от типа данных выполнять работу функции)
 /*
    Sum(1, 2);
    Sum(5.5, 7.2);
@@ -542,7 +565,7 @@ Sum(1.0, 2.2);
    Sum(4, "FSA");
    */
 
-   //Стек(выполняются функцию по логике последняя функция первой удаляется при завершении работы) рекурсии функции
+   //3.9 Стек(выполняются функцию по логике последняя функция первой удаляется при завершении работы) рекурсии функции
    //Факториал с использованием рекурсии
 /*Res(10);//если функций в функций будет много то прога крашнется 
 
@@ -550,7 +573,7 @@ Sum(1.0, 2.2);
  cout << Fuct(10);
  */
   
-   //Указатели (дз) (содержи адрес объекта на который указываем в оперативной памяти)
+   //4.0 Указатели (дз) (содержи адрес объекта на который указываем в оперативной памяти)
 /*
 int a = 5;
 int b = a;
@@ -592,7 +615,7 @@ Swap(&a, &b);
 cout << "a " << a << endl << "b " << b;
 */
   
-   //Ссылки (дз) (суть как и указателя но нельзя работать с адресом объекта)
+   //4.1 Ссылки (дз) (суть как и указателя но нельзя работать с адресом объекта)
 /*
 int a = 5;
 int* pa = &a;//указатель
@@ -615,73 +638,107 @@ Swap(a, b);
 cout << "a " << a << endl << "b " << b;
 */
 
-   //Динамическая память массивы и двумерные массивы копирование динамического массива  (new delete)(NULL nullpntr) 
+   //4.2Динамическая память массивы и двумерные массивы копирование динамического массива  (new delete)(NULL nullpntr) 
 /*
-int* px = new int;//выделили вне программы оперативную память 
-*px = 10;//дали значене этому адресу вне программы 
-delete px;//отчистили память вне программы для дальнейшего спользования 
-//сначала удаляем значение в выделенной памяти потом удаляем адрес в указателе 
-px = NULL;//NULL = 0 (int)
-px = nullptr;//nullptr отдельный тип данных дабы в использовании функций if NULL не мешал проходить проверку 0вым int
-int size = 0;
-cout << "Введите размер массива: " << endl;
-cin >> size;
-int *mass = new int[size];
+   int size = 0;
+   cout << "Введите размер массива: ";
+   cin >> size;
+   int* arr = new int[size];
+   for (int i = 0; i < size; i++)
+   {
+	   arr[i] = rand() % 1000;
+	   cout << arr + i << '\t';
+	   cout << arr[i] (arr+i) тоже самое что и arr[i] << endl;
+   }
+   delete[] arr;
+ 
+
+   int rows = 5;
+   int cols = 5;
+   int undercols = 5;
+   int res = 0;
+   int resRow = 0;
+   int allRes = 0;
+   int i = 0;
+   int j = 0;
+   int h = 0;
+   int*** arr = new int** [rows];
+   for (; i < rows; i++)
+   { 
+	   arr[i] = new int*[cols];
+	   cout << i<<endl;
+	   for (; j < cols; j++)
+	   {
+		   cout << j << " (" << i << ")" <<'\t';
+		   arr[i][j] = new int[undercols];
+		   for (; h < undercols; h++)
+		   {
+			   arr[i][j][h] = rand() % 10;
+			   res += arr[i][j][h];
+			   resRow += res;
+			   allRes += res;
+			   cout << " (" << h << "-" << j << "-" << i << ")"<<"Number: "<< arr[i][j][h]<<'\t';
+			  
+		   }
+		   cout << '\t' << "Sum: " << res<<endl;
+		   res = 0;
+		   h = 0;
+		   delete[] arr[i][j];
+	   }
+	   cout << "Sum all: " << resRow<<endl<<endl;
+	   resRow = 0;
+	   j = 0;
+	   cout << endl << "--------------------------------------------------------------------------------------------------------------------------------------------------" << endl;
+	   delete[] arr[i];
+   }
+  cout << endl;
+   cout << "All sum res: " << allRes << endl<<endl;
+
+   delete[] arr;
+
+
+int size = rand() % 30;
+int sizeConst = 10;
+int* firstArr = new int[size];
+int* secondArr = new int[sizeConst];
+
+Generate(firstArr, size);
+Generate(secondArr, sizeConst);
+
+cout << "First:  ";
+Show(firstArr, size);
+cout << endl;
+cout << "Second: ";
+Show(secondArr, sizeConst);
+delete[]firstArr;
+
+cout << "---------------------------------------------------------------------------------"<<endl; 
+
+size = sizeConst;
+
+firstArr = new int[size];
+
 for (int i = 0; i < size; i++)
 {
-	mass[i] = rand() % 20;
-	cout << mass[i] << '\t';
-	cout << mass + i << endl;
-}
-delete[] mass;
-
-int sizeR = 0, sizeC = 0;
-cout << "Введите количество строк: ";
-cin >> sizeR;
-cout << "Введите количество столбцов: ";
-cin >> sizeC;
-
-int** mass = new int*[sizeR];
-for (int i = 0; i < sizeR; i++)
-{
-	mass[i] = new int[sizeC];
-	for (int j = 0; j < sizeC; j++)
-	{
-		mass[i][j] = rand() % 20;
-		cout << mass[i][j]<<'\t';
-	}
-	cout << endl;
-	delete[] mass[i];
-}
-delete[] mass;
-
-
-int size = 10;
-int* mass1 = new int[size];
-int* mass2 = new int[size];
-
-cout << "Первый массив: ";
-Mass(mass1, size);
-
-cout << "Второй массив: ";
-Mass(mass2, size);
-
-cout << " ===================================================" << endl;
-delete[]mass1;
-mass1 = new int[size];
-cout << "Первый массив: ";
-for (int i = 0; i < size; i++)
-{
-	mass1[i] = mass2[i];
-	
-	cout << mass1[i]<<'\t';
+	firstArr[i] = secondArr[i];
 }
 
-delete[]mass1;
-delete[]mass2;
-*/
-int size = 10;
-int *arr = new int[size];
+cout << "First:  ";
+Show(firstArr, size);
+cout << endl;
+cout << "Second: ";
+Show(secondArr, sizeConst);
+
+delete[]firstArr;
+delete[]secondArr;
+ */
+
+int size = rand() % 10+5;
+int* arr = new int[size];
+Generate(arr, size);
+Show(arr, size);
+push_bck(arr, size, 3, 40);
+Show(arr, size);
 }
 
  //функции
