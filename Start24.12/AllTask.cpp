@@ -1,5 +1,6 @@
 ﻿#include <iostream>//бибилиотека для вывода ввода 
 #include <ctime>
+#include <string>
 
 using namespace std;//пространство имен для команд std(cout,endl...)
 
@@ -47,7 +48,7 @@ template <class T> void Swap(T& a, T& b) {
 	a = b;
 	b = save;
 }
-*/
+
 
 void Generate(int* const arr, const int size) {
 	for (int i = 0; i < size; i++)
@@ -79,8 +80,17 @@ void push_bck(int *&arr,int const &size, const int part, const int value) {
 	arr = newArr;
 }
 
-int main()//начало проги
 
+void foo(const char *&str) {
+	int res = 0;
+	while (str[res]!='\0')
+	{
+		res++;
+	}
+	cout << res;
+}
+*/
+int main()//начало проги
 {
 	srand(time(NULL));//точка для отсчета рандомных чисел 
 	setlocale(LC_ALL, "ru");//для получене в этом случае русского языка
@@ -731,7 +741,7 @@ Show(secondArr, sizeConst);
 
 delete[]firstArr;
 delete[]secondArr;
- */
+
 
 int size = rand() % 10+5;
 int* arr = new int[size];
@@ -739,6 +749,56 @@ Generate(arr, size);
 Show(arr, size);
 push_bck(arr, size, 3, 40);
 Show(arr, size);
+ */
+
+   //4.3 String Char преоброзование указатели конкатенация(strcat_s)sting
+/*
+   char string1[] = "Hello";
+   char string2[] = { 'H','e','l','l','o','\0' };//'\0'обозначает конец строчки
+   cout << string2 << endl;
+ 
+double a = 54.4;
+cout << a << endl;
+cout << (int)a << endl;
+int b = 10;
+cout << a / b << endl;
+cout << int(a / b) << endl;
+  
+char str[] = "World";
+const char* string = str;
+cout << string <<endl;
+const char* ArrStr[] = { "Hello","World","Test" };
+for (int i = 0; i < 3; i++)
+{
+	cout << ArrStr[i]<<endl;
+}
+
+const char* str1 = "Hello";
+foo(str1);
+
+
+char res[255]{};
+
+char string1[255] = "Hello";
+char string2[255] = "World";
+
+cout << string1 << endl;
+cout << string2 << endl;
+
+strcat_s(res, string2);
+strcat_s(res, string1);
+
+cout << res << endl;
+cout << string1 << endl;
+cout << string2 << endl;
+*/
+string str1 = "Hello";
+string str2 = "World";
+string res;
+int a = 7;
+res = str1 + " " + str2 + (char)a;
+cout << res;
+
 }
 
  //функции
