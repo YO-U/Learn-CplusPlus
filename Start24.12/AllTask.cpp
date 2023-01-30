@@ -90,6 +90,13 @@ void foo(const char *&str) {
 	cout << res;
 }
 */
+
+int foo1(int a) {
+	return --a;
+}
+int foo2(int a) {
+	return a * 2;
+}
 int main()//начало проги
 {
 	srand(time(NULL));//точка для отсчета рандомных чисел 
@@ -751,7 +758,7 @@ push_bck(arr, size, 3, 40);
 Show(arr, size);
  */
 
-   //4.3 String Char преоброзование указатели конкатенация(strcat_s)sting
+   //4.3 String Char преоброзование указатели конкатенация(1текст + другой текст)(strcat_s)sting
 /*
    char string1[] = "Hello";
    char string2[] = { 'H','e','l','l','o','\0' };//'\0'обозначает конец строчки
@@ -791,14 +798,19 @@ strcat_s(res, string1);
 cout << res << endl;
 cout << string1 << endl;
 cout << string2 << endl;
-*/
+
 string str1 = "Hello";
 string str2 = "World";
 string res;
-int a = 7;
-res = str1 + " " + str2 + (char)a;
+res = str1 + " " + str2 ;
 cout << res;
+*/
 
+   //4.4 Указатель на функцию
+   int(*fooPointer)(int a);
+
+   fooPointer = foo1;
+  cout<< fooPointer(10);
 }
 
  //функции
