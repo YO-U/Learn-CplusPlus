@@ -1,6 +1,8 @@
 ﻿#include <iostream>//бибилиотека для вывода ввода 
-#include <ctime>
-#include <string>
+#include <ctime>// библиотека для srand
+#include <string>//библиотека для текстового типа данных
+#define start { //заменить все start на { 
+#define end } //заменить все end на { 
 
 using namespace std;//пространство имен для команд std(cout,endl...)
 
@@ -89,7 +91,7 @@ void foo(const char *&str) {
 	}
 	cout << res;
 }
-*/
+
 
 int foo1(int a) {
 	return --a;
@@ -97,6 +99,8 @@ int foo1(int a) {
 int foo2(int a) {
 	return a * 2;
 }
+*/
+
 int main()//начало проги
 {
 	srand(time(NULL));//точка для отсчета рандомных чисел 
@@ -806,11 +810,20 @@ res = str1 + " " + str2 ;
 cout << res;
 */
 
-   //4.4 Указатель на функцию
+   //4.4 Указатель на функцию ( для работы с большим количество функций когда не известно сколько их и можно 1 указателем вызывать нужную с определенными требованиями )
+/*
    int(*fooPointer)(int a);
 
    fooPointer = foo1;
   cout<< fooPointer(10);
+ */
+
+   //4.5 Препроцессор Директива(#include подключаются до начала работы кода пишутся в начале кода в основном) #define (заменяет все в коде на прописанное значение)
+if (true)
+start
+cout << "yes";
+end
+
 }
 
  //функции
