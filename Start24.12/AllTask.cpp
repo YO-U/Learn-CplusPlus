@@ -1,8 +1,9 @@
 ﻿#include <iostream>//бибилиотека для вывода ввода 
 #include <ctime>// библиотека для srand
 #include <string>//библиотека для текстового типа данных
-#define start { //заменить все start на { 
-#define end } //заменить все end на { 
+//#define start { //заменить все start на { 
+//#define end } //заменить все end на { 
+#define FOO(a,b) ((a)*(b))
 
 using namespace std;//пространство имен для команд std(cout,endl...)
 
@@ -819,10 +820,15 @@ cout << res;
  */
 
    //4.5 Препроцессор Директива(#include подключаются до начала работы кода пишутся в начале кода в основном) #define (заменяет все в коде на прописанное значение)
+/*
 if (true)
 start
 cout << "yes";
 end
+*/
+
+   //4.6 Макрос функция
+   cout << FOO(10, 5);
 
 }
 
