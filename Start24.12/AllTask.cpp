@@ -103,6 +103,82 @@ int foo2(int a) {
 }
 */
 
+//классы
+/*
+class Human
+{
+public:
+	int age;
+	int weight;
+	string name;
+
+	void Print() {
+		cout << name << endl;
+		cout << age << endl;
+		cout << weight << endl;
+	}
+private:
+	int id;
+};
+
+*/
+class Point {
+private:
+	int x, y, z;
+public:
+
+	Point(int valueX,int valueY,int valueZ){
+		x = valueX;
+		y = valueY;
+		z = valueZ;
+	}
+
+	void Print() {
+		cout << x << '\n' << y << '\n' << z << endl;
+	}
+	int GetX() {
+		return x;
+	}
+	void SetX(int valueX) {
+		x = valueX;
+	}
+
+	int GetY() {
+		return y;
+	}
+	void SetY(int valueY) {
+		y = valueY;
+	}
+
+	int GetZ() {
+		return z;
+	}
+	void SetZ(int valueZ) {
+		z = valueZ;
+	}
+};
+
+/*
+class CoffeeGrinder {
+private:
+	string Check() {
+		int V = rand() % 11;
+		if (V>5)
+		{
+			return "Warrning";
+		}
+		else {
+			return "Ok";
+		}
+	}
+public:
+	void Start() {
+		cout << "Gringing..." << endl;
+		cout << Check() << endl;
+	}
+	
+};
+*/
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -838,7 +914,8 @@ end
 */
 
    //4.6 Макрос функция
-/*cout << FOO(10, 5);
+/*
+cout << FOO(10, 5);
 */
 
    //4.7  #ifdef #else #endif #if #elif #endif #ifndef позволяет делать проверки (того же выворда текста доп информации для программиста но не нужный для заказчика) закоментировав #define с которым работали код внутри не будет работать 
@@ -877,7 +954,57 @@ cout << "second" << endl;
    a > 5 ? cout << "Больше 5" : a<5? cout << "Меньше 5":cout<<"Равно 5";
    */
 
+      //ООП//
 
+   //5.1 объект методы класса private public
+/*
+   Human FirstHuman;
+   FirstHuman.age = 30;
+   FirstHuman.name = "Oleg";
+   FirstHuman.weight = 100;
+   
+   cout << FirstHuman.age << endl;
+   cout << FirstHuman.name << endl;
+   cout << FirstHuman.weight << endl;
+
+   Human SecondHuman;
+   SecondHuman.age = 20;
+   SecondHuman.name = "Sanya";
+   SecondHuman.weight = 90;
+
+   cout << SecondHuman.age << endl;
+   cout << SecondHuman.name << endl;
+   cout << SecondHuman.weight << endl;
+   
+
+   FirstHuman.Print();
+   */
+
+   //5.2 get (присвоить значение) и set (задать значение)
+/*
+   Point FirstPoint;
+
+   FirstPoint.SetX(10);
+   int res = FirstPoint.GetX();
+   
+   cout << res;
+   */
+
+   //5.3 Инкапсуляция
+/*
+   CoffeeGrinder Capuchino;
+   Capuchino.Start();
+   */
+
+   //5.4 Конструктор класса
+   Point a( 10,5,9);
+   a.Print();
+   a.SetX(15);
+   a.Print();
+
+   Point b(10, 23, 1241);
+   b.Print();
+   return 0;
 }
  //функции
 /*
