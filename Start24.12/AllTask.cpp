@@ -121,18 +121,42 @@ private:
 	int id;
 };
 
-*/
+class CoffeeGrinder {
+private:
+	string Check() {
+		int V = rand() % 11;
+		if (V>5)
+		{
+			return "Warrning";
+		}
+		else {
+			return "Ok";
+		}
+	}
+public:
+	void Start() {
+		cout << "Gringing..." << endl;
+		cout << Check() << endl;
+	}
+	
+};
+
+
 class Point {
 private:
 	int x, y, z;
 public:
 
-	Point(int valueX,int valueY,int valueZ){
+	Point(int valueX, int valueY, int valueZ) {
 		x = valueX;
 		y = valueY;
 		z = valueZ;
 	}
-
+	Point() {
+		x = 0;
+		y = 0;
+		z = 0;
+	}
 	void Print() {
 		cout << x << '\n' << y << '\n' << z << endl;
 	}
@@ -157,28 +181,29 @@ public:
 		z = valueZ;
 	}
 };
-
-/*
-class CoffeeGrinder {
-private:
-	string Check() {
-		int V = rand() % 11;
-		if (V>5)
-		{
-			return "Warrning";
-		}
-		else {
-			return "Ok";
-		}
-	}
-public:
-	void Start() {
-		cout << "Gringing..." << endl;
-		cout << Check() << endl;
-	}
-	
-};
 */
+
+class MyClass
+{
+private:
+	int* arr;
+public:
+	MyClass( int size) {
+		arr = new int[size];
+		for (size_t i = 0; i < size; i++)
+		{
+			arr[i] = i;
+		}
+		cout << "Коснтруктор" << endl;
+	}
+	~MyClass() {
+		delete[]arr;
+		cout << "Деструктор" << endl;
+	}
+
+
+};
+
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -997,7 +1022,8 @@ cout << "second" << endl;
    */
 
    //5.4 Конструктор класса
-   Point a( 10,5,9);
+/*
+Point a( 10,5,9);
    a.Print();
    a.SetX(15);
    a.Print();
@@ -1005,6 +1031,19 @@ cout << "second" << endl;
    Point b(10, 23, 1241);
    b.Print();
    return 0;
+   */
+
+   //5.5 Перегрузка  конструктора
+/*
+Point a(10, 5, 9);
+a.Print();
+
+Point b;
+b.Print();
+*/
+
+   //5.6 Деструктор
+   MyClass a(4);
 }
  //функции
 /*
