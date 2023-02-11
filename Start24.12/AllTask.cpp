@@ -163,8 +163,8 @@ public:
 	int GetX() {
 		return x;
 	}
-	void SetX(int valueX) {
-		x = valueX;
+	void SetX(int x) {
+		this.x = x;
 	}
 
 	int GetY() {
@@ -187,23 +187,36 @@ class MyClass
 {
 private:
 	int* arr;
+	int sizeM;
 public:
-	MyClass( int size) {
-		arr = new int[size];
+	MyClass( int size) { //конструктор
+		this->sizeM = size;
+		this->arr = new int[size];
 		for (size_t i = 0; i < size; i++)
 		{
-			arr[i] = i;
+			arr[i] = rand() % 20;
+			cout << arr[i] << endl;
 		}
 		cout << "Коснтруктор" << endl;
 	}
-	~MyClass() {
+	~MyClass() { // деструктор выполняется сначало тот что был последним 
 		delete[]arr;
 		cout << "Деструктор" << endl;
 	}
-
+	MyClass(const MyClass& other) { // копирование
+		this->sizeM = other.sizeM;
+		this->arr = new int[sizeM];
+		for (int i = 0; i < sizeM; i++)
+		{
+			arr[i] = other.arr[i];
+			cout << arr[i] << endl;
+		}
+		cout << "Копирование" << endl;
+	}
 
 };
 */
+
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -1046,6 +1059,20 @@ b.Print();
 /*
    MyClass a(4);
    */
+
+   //5.7 this
+/*
+  Point a;
+  a.SetX(10);
+  a.Print();
+  */
+
+   //5.8 Конструктор копирования(изначально берет все и создает указательи на изначальный класс но если переменная динамическая то
+   //при удалении всплывет ошибка для этого вручную создаетм класс копирования и руками переносим все данные как в случае с массивом создаем цикл)
+/*
+MyClass a(10);
+MyClass b(a);
+*/
 }
  //функции
 /*
