@@ -182,13 +182,16 @@ public:
 	}
 };
 
-
+*/
 class MyClass
 {
 private:
 	int* arr;
 	int sizeM;
 public:
+	MyClass() {
+		sizeM = 0;
+	}
 	MyClass( int size) { //конструктор
 		this->sizeM = size;
 		this->arr = new int[size];
@@ -199,10 +202,29 @@ public:
 		}
 		cout << "Коснтруктор" << endl;
 	}
+
+	MyClass & operator = (const MyClass& other) {
+		cout << "Оператор" << endl;
+		if (this->arr!=nullptr)
+		{
+			delete[] this->arr;
+		}
+		this->sizeM = other.sizeM;
+		this->arr = new int[sizeM];
+		for (int i = 0; i < sizeM; i++)
+		{
+			arr[i] = other.arr[i];
+			cout << arr[i] << endl;
+		}
+		return *this;
+	}
+
 	~MyClass() { // деструктор выполняется сначало тот что был последним 
 		delete[]arr;
 		cout << "Деструктор" << endl;
+		
 	}
+	
 	MyClass(const MyClass& other) { // копирование
 		this->sizeM = other.sizeM;
 		this->arr = new int[sizeM];
@@ -215,7 +237,7 @@ public:
 	}
 
 };
-*/
+
 
 int main(/*int argc, char* argv[]*/)//начало проги
 {
@@ -1067,12 +1089,18 @@ b.Print();
   a.Print();
   */
 
-   //5.8 Конструктор копирования(изначально берет все и создает указательи на изначальный класс но если переменная динамическая то
+   //5.8 Конструктор копирования (изначально берет все и создает указательи на изначальный класс но если переменная динамическая то
    //при удалении всплывет ошибка для этого вручную создаетм класс копирования и руками переносим все данные как в случае с массивом создаем цикл)
 /*
 MyClass a(10);
 MyClass b(a);
 */
+
+   //5.9 Перегрузка оператора присваивания
+MyClass a(10);
+MyClass b(5);
+MyClass c;
+c = a = b;
 }
  //функции
 /*
