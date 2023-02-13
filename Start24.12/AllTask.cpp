@@ -141,48 +141,6 @@ public:
 	
 };
 
-
-class Point {
-private:
-	int x, y, z;
-public:
-
-	Point(int valueX, int valueY, int valueZ) {
-		x = valueX;
-		y = valueY;
-		z = valueZ;
-	}
-	Point() {
-		x = 0;
-		y = 0;
-		z = 0;
-	}
-	void Print() {
-		cout << x << '\n' << y << '\n' << z << endl;
-	}
-	int GetX() {
-		return x;
-	}
-	void SetX(int x) {
-		this.x = x;
-	}
-
-	int GetY() {
-		return y;
-	}
-	void SetY(int valueY) {
-		y = valueY;
-	}
-
-	int GetZ() {
-		return z;
-	}
-	void SetZ(int valueZ) {
-		z = valueZ;
-	}
-};
-
-*/
 class MyClass
 {
 private:
@@ -237,7 +195,55 @@ public:
 	}
 
 };
+*/
 
+class Point {
+private:
+	int x, y, z;
+public:
+
+	Point(int valueX, int valueY, int valueZ) {
+		x = valueX;
+		y = valueY;
+		z = valueZ;
+	}
+	Point() {
+		x = 0;
+		y = 0;
+		z = 0;
+	}
+	void Print() {
+		cout << x << '\n' << y << '\n' << z << endl;
+	}
+
+	bool operator ==(const Point &other) {
+		return this->x == other.x && this->y == other.y && this->z == other.z;
+	}
+	bool operator !=(const Point& other) {
+		return !(this->x == other.x && this->y == other.y && this->z == other.z);
+	}
+
+	int GetX() {
+		return x;
+	}
+	void SetX(int x) {
+		this->x = x;
+	}
+
+	int GetY() {
+		return y;
+	}
+	void SetY(int valueY) {
+		y = valueY;
+	}
+
+	int GetZ() {
+		return z;
+	}
+	void SetZ(int valueZ) {
+		z = valueZ;
+	}
+};
 
 int main(/*int argc, char* argv[]*/)//начало проги
 {
@@ -1096,11 +1102,25 @@ MyClass a(10);
 MyClass b(a);
 */
 
-   //5.9 Перегрузка оператора присваивания
+   //5.9 Перегрузка оператора присваивания (нельзя присвоить значения из одного класса в другой из за проблемы с динамическими данными тоесть утечкой
+   //памяти в общем чтоб избежать этой ситуации создается оператора присваевания где мы вручную удаляем прошлую память и присваеваем по 1 индексу в массив
+   //главное не забыть про ретерн иначе нельзя будет присваивать значения больше 1  MyClass &operator используя ссылку на уже существующий класс а не создавать 
+   //новый это помогает присваивать значения в большом количестве разом)
+/*
 MyClass a(10);
 MyClass b(5);
 MyClass c;
 c = a = b;
+*/
+
+   //6.1 Перегрузка оператора равенства == и не равно !=
+Point a(10, 20, 30);
+Point b(10, 20, 30);
+
+bool res = a == b;
+bool convres = a != b;
+cout << res << endl;
+cout << convres << endl;
 }
  //функции
 /*
