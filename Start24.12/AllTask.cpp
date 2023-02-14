@@ -223,6 +223,14 @@ public:
 		return !(this->x == other.x && this->y == other.y && this->z == other.z);
 	}
 
+	Point  operator + (const Point& other) {
+		Point temp;
+		temp.x = this->x + other.x;
+		temp.y = this->y + other.y;
+		temp.z = this->z + other.z;
+		return temp;
+	}
+
 	int GetX() {
 		return x;
 	}
@@ -1114,6 +1122,7 @@ c = a = b;
 */
 
    //6.1 Перегрузка оператора равенства == и не равно !=
+/*
 Point a(10, 20, 30);
 Point b(10, 20, 30);
 
@@ -1121,6 +1130,13 @@ bool res = a == b;
 bool convres = a != b;
 cout << res << endl;
 cout << convres << endl;
+*/
+
+   //6.2 Перегрузка оператора сложения( + - / * )
+Point a(10, 20, 30);
+Point b(10,20,30);
+Point c;
+c = a + b;
 }
  //функции
 /*
