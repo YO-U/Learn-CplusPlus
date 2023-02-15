@@ -251,6 +251,21 @@ public:
 	void SetZ(int valueZ) {
 		z = valueZ;
 	}
+
+	Point& operator ++() { // ++a
+		this->x++;
+		this->y++;
+		this->z++;
+		return *this;
+	}
+	Point& operator ++(int value) { //a++
+		Point temp(*this);
+		this->x++;
+		this->y++;
+		this->z++;
+		return temp;
+	}
+
 };
 
 int main(/*int argc, char* argv[]*/)//начало проги
@@ -1133,11 +1148,18 @@ cout << convres << endl;
 */
 
    //6.2 Перегрузка оператора сложения( + - / * )
+/*
 Point a(10, 20, 30);
 Point b(10,20,30);
 Point c;
 c = a + b;
-}
+}*/
+
+   //6.3 Перегрузка инкремента и декремента
+Point a(10, 20, 30);
+//++a;
+Point b = a++;
+   
  //функции
 /*
 int a = 0;
