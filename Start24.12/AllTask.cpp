@@ -195,7 +195,7 @@ public:
 	}
 
 };
-*/
+
 
 class Point {
 private:
@@ -267,7 +267,19 @@ public:
 	}
 
 };
+*/
 
+class Test
+{
+public:
+	int & operator[](int index) {
+		return arr[index];
+	}
+private:
+
+	int arr[10]{ 1,4,2,4,5,6,7,1,3 };
+
+};
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -1155,11 +1167,20 @@ Point c;
 c = a + b;
 }*/
 
-   //6.3 Перегрузка инкремента и декремента
+   //6.3 Перегрузка инкремента и декремента a++ --a
+ /*
 Point a(10, 20, 30);
 //++a;
 Point b = a++;
-   
+  */
+
+   //6.4 Перегрузка оператора индексирования arr[index]
+/*
+Test a;
+cout << a[1] << endl;
+a[1] = 40; // &
+cout << a[1] << endl;
+*/
  //функции
 /*
 int a = 0;
