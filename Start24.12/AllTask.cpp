@@ -197,6 +197,23 @@ public:
 };
 
 
+
+
+
+class Test
+{
+public:
+	int & operator[](int index) {
+		return arr[index];
+	}
+private:
+
+	int arr[10]{ 1,4,2,4,5,6,7,1,3 };
+
+};
+*/
+class Test;
+
 class Point {
 private:
 	int x, y, z;
@@ -216,7 +233,7 @@ public:
 		cout << x << '\n' << y << '\n' << z << endl;
 	}
 
-	bool operator ==(const Point &other) {
+	bool operator ==(const Point& other) {
 		return this->x == other.x && this->y == other.y && this->z == other.z;
 	}
 	bool operator !=(const Point& other) {
@@ -265,21 +282,20 @@ public:
 		this->z++;
 		return temp;
 	}
-
+	friend void ChangeX(Point& value, Test& valueT); // дает функции пользоваться приватными переменными / можно писать где угодно 
 };
-*/
 
-class Test
-{
-public:
-	int & operator[](int index) {
-		return arr[index];
-	}
+class Test {
 private:
-
-	int arr[10]{ 1,4,2,4,5,6,7,1,3 };
-
+	int B = 0;
+	friend void ChangeX(Point& value, Test& valueT);
 };
+
+void ChangeX(Point& value, Test&valueT) { // this не работает 
+	value.x = -1;
+	valueT.B = -1;
+}
+
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -1181,6 +1197,13 @@ cout << a[1] << endl;
 a[1] = 40; // &
 cout << a[1] << endl;
 */
+
+   //6.5 Дружественные функции и классы
+Point a(10, 203, 40);
+a.Print();
+Test b;
+ChangeX(a,b);
+a.Print();
  //функции
 /*
 int a = 0;
