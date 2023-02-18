@@ -211,7 +211,7 @@ private:
 	int arr[10]{ 1,4,2,4,5,6,7,1,3 };
 
 };
-*/
+
 class Test;
 
 class Point {
@@ -294,6 +294,32 @@ private:
 void ChangeX(Point& value, Test&valueT) { // this не работает 
 	value.x = -1;
 	valueT.B = -1;
+}
+*/
+
+class MyClass
+{
+public:
+	MyClass();
+	~MyClass();
+
+	void printMessage();
+
+private:
+
+};
+
+MyClass::MyClass()
+{
+}
+
+MyClass::~MyClass()
+{
+}
+
+void MyClass::printMessage()
+{
+	cout << "Hello" << endl;
 }
 
 int main(/*int argc, char* argv[]*/)//начало проги
@@ -1199,11 +1225,16 @@ cout << a[1] << endl;
 */
 
    //6.5 Дружественные функции и классы
+/*
 Point a(10, 203, 40);
 a.Print();
 Test b;
 ChangeX(a,b);
-a.Print();
+a.Print();*/
+
+   //6.6 Определение методов вне класса
+MyClass a;
+a.printMessage();
  //функции
 /*
 int a = 0;
