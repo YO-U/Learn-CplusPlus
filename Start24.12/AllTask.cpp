@@ -320,27 +320,51 @@ void MyClass::printMessage()
 {
 	cout << "Hello" << endl;
 }
-*/
 
+*/
 class Apple;
+class Human;
 
 class Human {
 public:
-	void TackeApple(Apple& apple);
+
+	void TackeApple(Apple& apple); // надо выносить вне класса чтоб получить доступ к полям приватным 
+	void EeatApple(Apple& apple) { 
+	}
 };
 
 class Apple {
 public:
+	
+
+	friend Human;//делает все приватные поля доступными для хумэна
 	Apple(int weight, string color) {
 		this->weight = weight;
 		this->color = color;
+		 id = Count++;
+	}
+	string GetColor() {
+		return color;
+	}
+	int GetId(){
+		return id;
+	}
+	static int GetCount() {
+		return Count;
+	}
+	static void ChangeColor(Apple &apple, string color) {
+		apple.color = color;
 	}
 
-	friend void Human::TackeApple(Apple& apple);
+	friend void Human::TackeApple(Apple& apple);//делает дружественным метод класса
 private:
+	static int Count;
 	int weight;
 	string color;
+	int id=0;
 };
+
+int Apple::Count = 0;
 
 
 
@@ -1083,7 +1107,7 @@ end
 cout << FOO(10, 5);
 */
 
-//4.7  #ifdef #else #endif #if #elif #endif #ifndef позволяет делать проверки (того же выворда текста доп информации для программиста но не нужный для заказчика) закоментировав #define с которым работали код внутри не будет работать 
+   //4.7  #ifdef #else #endif #if #elif #endif #ifndef позволяет делать проверки (того же выворда текста доп информации для программиста но не нужный для заказчика) закоментировав #define с которым работали код внутри не будет работать 
 /*
    #ifdef (если #define есть)
    #else (используется с #ifdef #if альтернативное действие если условие не верно или стоит #ifndef)
@@ -1100,7 +1124,7 @@ cout << "second" << endl;
 #endif // DEBUG если его закоментировать на 7 строчке то код между не будет виден компилятору
 */
 
-//4.8 Условный тернарный оператор (унарные a++ бинарные a+b) условие?что происходит:в ином случае;
+   //4.8 Условный тернарный оператор (унарные a++ бинарные a+b) условие?что происходит:в ином случае;
 /*
    int a;
    cin >> a;
@@ -1121,7 +1145,7 @@ cout << "second" << endl;
 
    //ООП//
 
-//5.1 объект методы класса private public
+   //5.1 объект методы класса private public
 /*
    Human FirstHuman;
    FirstHuman.age = 30;
@@ -1260,10 +1284,48 @@ MyClass a;
 a.printMessage();*/
 
 //6.7 Дружественный метод класса
-
+/*
 	Apple a(10, "Green");
 	Human man;
 	man.TackeApple(a);
+	*/
+
+//6.8 friend название класса; дает классу доступ к приватным полям 
+/*
+Apple b(1,"Blue");
+Human a;
+a.EeatApple(b);*/
+
+//6.9 static ( дз генератор id) 
+/*
+Human Man;
+Apple a(10, "Red");
+Man.TackeApple(a);
+Apple b(10, "Red");
+Man.TackeApple(b);
+Apple c(10, "Red");
+Man.TackeApple(c);
+Apple d(10, "Red");
+Man.TackeApple(d);
+Apple e(10, "Red");
+Man.TackeApple(e);
+Apple f(10, "Red");
+Man.TackeApple(f);
+*/
+
+//7.1 Статические методы класса
+Apple a(10, "Red");
+Apple b(10, "R54");
+Apple c(10, "Rcvxb");
+Apple d(10, "Rfgjn");
+Apple e(10, "Res");
+Apple f(10, "Recvbn");
+
+Apple::ChangeColor(a, "FF");
+cout << a.GetColor() << endl;
+
+cout << Apple::GetCount() << endl;
+
 }
  //функции
 /*
@@ -1309,8 +1371,7 @@ int Fuct(int a) {
 	 	if(a>1) return a = a * Fuct(a - 1);
 }
 */
-
    void Human::TackeApple(Apple& apple)
    {
-	   cout << apple.color << '\n' << apple.weight << endl;
+	   cout << apple.id << "\t\t" << apple.color << "\t\t" << apple.weight << endl;
    }
