@@ -321,7 +321,7 @@ void MyClass::printMessage()
 	cout << "Hello" << endl;
 }
 
-*/
+
 class Apple;
 class Human;
 
@@ -366,7 +366,51 @@ private:
 
 int Apple::Count = 0;
 
+*/
 
+class Img {
+public:
+
+	void GetImgInfo() {
+		for (int i = 0; i < size; i++)
+		{
+			pixels[i].GetInfo();
+		}
+	}
+
+private:
+
+	class Pixel {
+	public:
+
+		Pixel(int r, int b, int g) {
+			this->r = r;
+			this->g = g;
+			this->b = b;
+		}
+
+		string GetInfo(){
+			cout << "R - " << r << '\n' << "G - " << g << '\n' << "B - " << b << endl;
+		}
+
+	private:
+		int r;
+		int b;
+		int g;
+		
+	};
+
+	static const int size = 5;
+	Pixel pixels[size]
+	{
+		Pixel(20,50,89),
+		Pixel(22,60,893),
+		Pixel(24,80,8249),
+		Pixel(70,543,879),
+		Pixel(706,5453,8749)
+	};
+
+};
 
 int main(/*int argc, char* argv[]*/)//начало проги
 {
@@ -1314,6 +1358,7 @@ Man.TackeApple(f);
 */
 
 //7.1 Статические методы класса
+/*
 Apple a(10, "Red");
 Apple b(10, "R54");
 Apple c(10, "Rcvxb");
@@ -1325,7 +1370,12 @@ Apple::ChangeColor(a, "FF");
 cout << a.GetColor() << endl;
 
 cout << Apple::GetCount() << endl;
+*/
 
+//7.2 Внутренние классы
+
+
+return 0;
 }
  //функции
 /*
@@ -1370,8 +1420,9 @@ int Res(int a) {
 int Fuct(int a) {
 	 	if(a>1) return a = a * Fuct(a - 1);
 }
-*/
+
    void Human::TackeApple(Apple& apple)
    {
 	   cout << apple.id << "\t\t" << apple.color << "\t\t" << apple.weight << endl;
    }
+   */
