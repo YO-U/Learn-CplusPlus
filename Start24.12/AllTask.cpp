@@ -368,20 +368,25 @@ int Apple::Count = 0;
 
 */
 
-class Img {
-public:
-
-	void GetImgInfo() {
-		for (int i = 0; i < size; i++)
-		{
-			pixels[i].GetInfo();
-		}
-	}
-
-private:
+//class Img {
+//public:
+//
+//	void GetImgInfo() {
+//		for (int i = 0; i < size; i++)
+//		{
+//			
+//			cout << pixels[i].GetInfo() << endl;
+//		}
+//	}
+//
+//private:
 
 	class Pixel {
 	public:
+
+		Pixel() {
+			r, g, b = 0;
+		}
 
 		Pixel(int r, int b, int g) {
 			this->r = r;
@@ -390,7 +395,7 @@ private:
 		}
 
 		string GetInfo(){
-			cout << "R - " << r << '\n' << "G - " << g << '\n' << "B - " << b << endl;
+			return "R - " + to_string( r) + '\n' + "G - " + to_string(g) + '\n' + "B - " + to_string(b);
 		}
 
 	private:
@@ -400,17 +405,17 @@ private:
 		
 	};
 
-	static const int size = 5;
-	Pixel pixels[size]
-	{
-		Pixel(20,50,89),
-		Pixel(22,60,893),
-		Pixel(24,80,8249),
-		Pixel(70,543,879),
-		Pixel(706,5453,8749)
-	};
-
-};
+//	static const int size = 5;
+//	Pixel pixels[size]
+//	{
+//		Pixel(20,50,89),
+//		Pixel(22,60,893),
+//		Pixel(24,80,8249),
+//		Pixel(70,543,879),
+//		Pixel(706,5453,8749)
+//	};
+//
+//};
 
 int main(/*int argc, char* argv[]*/)//начало проги
 {
@@ -1373,7 +1378,20 @@ cout << Apple::GetCount() << endl;
 */
 
 //7.2 Внутренние классы
+/*
+Img a;
 
+a.GetImgInfo();
+*/
+
+//7.3 Массив объектов класса
+const int size = 5;
+Pixel arr[size]{Pixel(1,23,4)};
+
+for (int i = 0; i < size; i++)
+{
+	cout << arr[i].GetInfo() << endl;
+}
 
 return 0;
 }
