@@ -1386,12 +1386,17 @@ a.GetImgInfo();
 
 //7.3 Массив объектов класса
 const int size = 5;
-Pixel arr[size]{Pixel(1,23,4)};
+Pixel arr[size]{};
 
-for (int i = 0; i < size; i++)
-{
-	cout << arr[i].GetInfo() << endl;
-}
+	cout << arr[0].GetInfo() << endl;
+
+	arr[0] = Pixel(10, 320, 4);
+
+	cout << arr[0].GetInfo() << endl;
+
+	int sizeM = 5;
+	Pixel* mass = new Pixel[sizeM];
+	delete[]mass;
 
 return 0;
 }
