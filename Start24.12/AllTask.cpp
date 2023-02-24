@@ -366,20 +366,20 @@ private:
 
 int Apple::Count = 0;
 
-*/
 
-//class Img {
-//public:
-//
-//	void GetImgInfo() {
-//		for (int i = 0; i < size; i++)
-//		{
-//			
-//			cout << pixels[i].GetInfo() << endl;
-//		}
-//	}
-//
-//private:
+
+class Img {
+public:
+
+	void GetImgInfo() {
+		for (int i = 0; i < size; i++)
+		{
+			
+			cout << pixels[i].GetInfo() << endl;
+		}
+	}
+
+private:
 
 	class Pixel {
 	public:
@@ -405,18 +405,80 @@ int Apple::Count = 0;
 		
 	};
 
-//	static const int size = 5;
-//	Pixel pixels[size]
-//	{
-//		Pixel(20,50,89),
-//		Pixel(22,60,893),
-//		Pixel(24,80,8249),
-//		Pixel(70,543,879),
-//		Pixel(706,5453,8749)
-//	};
-//
-//};
+	static const int size = 5;
+	Pixel pixels[size]
+	{
+		Pixel(20,50,89),
+		Pixel(22,60,893),
+		Pixel(24,80,8249),
+		Pixel(70,543,879),
+		Pixel(706,5453,8749)
+	};
 
+};
+
+
+class Cap {
+public:
+	string GetColor() {
+		return color;
+	}
+private:
+	string color = "Red";
+};
+
+class Human {
+public:
+	void Think() {
+		brain.Think();
+	}
+	void LookCap() {
+		cout << "Cap is " << cap.GetColor() << endl;
+	}
+private:
+	class Brain {
+	public:
+		void Think() {
+			cout << "Thinking" << endl;
+		}
+	};
+	Brain brain;
+	Cap cap;
+};
+*/
+
+class Human {
+public:
+	string name;
+	int age;
+	string gender;
+};
+
+class Student:public Human {
+public:
+	int id;
+	string work;
+	string cours;
+	string group;
+
+	void Learn() {
+		cout << "Lern" << endl;
+	}
+};
+
+class ExtraSrudent : public Student {
+public:
+	void Learn() {
+		cout << "Learn no more" << endl;
+	}
+};
+
+class Teacher:public Human {
+public:
+	string HaveGroup;
+	string nameLess;
+	int roomNumber;
+};
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -1385,6 +1447,7 @@ a.GetImgInfo();
 */
 
 //7.3 Массив объектов класса
+/*
 const int size = 5;
 Pixel arr[size]{};
 
@@ -1397,6 +1460,29 @@ Pixel arr[size]{};
 	int sizeM = 5;
 	Pixel* mass = new Pixel[sizeM];
 	delete[]mass;
+*/
+
+//7.4 агрегация (нет жесткой привязки к объекту) и композиция (жесткая привязка одного объекта к другому) (классы используются в 1 классе но Cap агрегация так не зависим от Human а Brain создан в Human и зависит от него)
+/*
+Human man;
+man.Think();// barin думает но вызывается в human 
+
+man.LookCap();
+*/
+
+//7.5 Наследование
+
+Student Artem;
+Artem.name;
+Artem.cours;
+Artem.Learn();
+
+ExtraSrudent Yan;
+Yan.Learn();
+
+Teacher Dubina;
+Dubina.name;
+Dubina.roomNumber;
 
 return 0;
 }
