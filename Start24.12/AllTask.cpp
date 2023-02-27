@@ -445,7 +445,7 @@ private:
 	Brain brain;
 	Cap cap;
 };
-*/
+
 
 class Human {
 public:
@@ -478,7 +478,21 @@ public:
 	string HaveGroup;
 	string nameLess;
 	int roomNumber;
+};*/
+
+class A {
+public:
+	string pb = "public";
+private:
+	string pv = "private";
+protected:
+	string pt = "protected";
 };
+
+class B : public A {
+
+};
+
 int main(/*int argc, char* argv[]*/)//начало проги
 {
 	/*
@@ -1471,7 +1485,7 @@ man.LookCap();
 */
 
 //7.5 Наследование
-
+/*
 Student Artem;
 Artem.name;
 Artem.cours;
@@ -1483,6 +1497,10 @@ Yan.Learn();
 Teacher Dubina;
 Dubina.name;
 Dubina.roomNumber;
+*/
+
+//7.6 Модификаторы доступа при наследовании
+
 
 return 0;
 }
