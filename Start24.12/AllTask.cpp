@@ -489,8 +489,14 @@ protected:
 	string pt = "protected";
 };
 
-class B : public A {
-
+class B : public A // public поля видут как и в обычном классе private все поля приватные к ним нет доступа protected поле public не будет доступано вне классов  
+{
+public :
+	void PrintMess() {
+		cout << pb << endl; // можно везде 
+		cout << pv << endl; //нельзя обратиться к привату 
+		cout << pt << endl; // можно в классов наследниках 
+	}
 };
 
 int main(/*int argc, char* argv[]*/)//начало проги
@@ -1501,6 +1507,8 @@ Dubina.roomNumber;
 
 //7.6 Модификаторы доступа при наследовании
 
+B b;
+b.PrintMess();
 
 return 0;
 }
