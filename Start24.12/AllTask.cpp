@@ -478,7 +478,7 @@ public:
 	string HaveGroup;
 	string nameLess;
 	int roomNumber;
-};*/
+};
 
 class A {
 public:
@@ -496,6 +496,21 @@ public :
 		cout << pb << endl; // можно везде 
 		cout << pv << endl; //нельзя обратиться к привату 
 		cout << pt << endl; // можно в классов наследниках 
+	}
+};
+*/
+
+class Gun {
+public :
+	virtual/*позвольяет менять функцию во время наследования*/ void Shoot() {
+		cout << "Bang" << endl;
+	}
+};
+
+class MultiGun : public Gun {
+public :
+	void Shoot() override/*контролирует чтоб изменяемая функция была написана правильно*/ {
+		cout << "Bang Bang Bang" << endl;
 	}
 };
 
@@ -1506,9 +1521,11 @@ Dubina.roomNumber;
 */
 
 //7.6 Модификаторы доступа при наследовании
-
+/*
 B b;
 b.PrintMess();
+*/
+
 
 return 0;
 }
