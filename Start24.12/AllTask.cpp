@@ -498,19 +498,57 @@ public :
 		cout << pt << endl; // можно в классов наследниках 
 	}
 };
-*/
+
 
 class Gun {
 public :
-	virtual/*позвольяет менять функцию во время наследования*/ void Shoot() {
+	virtual void Shoot() { //позвольяет менять функцию во время наследования
 		cout << "Bang" << endl;
 	}
+	virtual void TakeDamage() = 0;
 };
 
 class MultiGun : public Gun {
 public :
-	void Shoot() override/*контролирует чтоб изменяемая функция была написана правильно*/ {
+	void Shoot() override{//контролирует чтоб изменяемая функция была написана правильно
 		cout << "Bang Bang Bang" << endl;
+	}
+	void TakeDamage() override {
+		cout << "HP -50" << endl;
+	}
+};
+
+class SniperGun : public Gun {
+public:
+	void Shoot() override {
+		cout << "BAAANG" << endl;
+	}
+};
+
+class Player {
+public:
+	void Shoot(Gun *gun) {
+		gun->Shoot();
+	}
+};
+*/
+
+class A {
+public:
+	A() {
+		cout << "New Denamik(A)" << endl;
+	}
+	virtual ~A() {
+		cout << "Delete Dinamik(A)" << endl;
+	}
+};
+class B:public A {
+public:
+	B() {
+		cout << "New Denamik(B)" << endl;
+	}
+	~B() override{
+		cout << "Delete Dinamik(B)" << endl;
 	}
 };
 
@@ -1526,6 +1564,22 @@ B b;
 b.PrintMess();
 */
 
+//7.7 virtual override Абстрактный класс
+/*
+Player player1;
+
+SniperGun ventovka;
+MultiGun mimiGun;
+
+player1.Shoot(&mimiGun);
+player1.Shoot(&ventovka);
+*/
+
+//7.8 Виртуальный деструктор класса
+
+A* a = new B;
+
+delete a;
 
 return 0;
 }
